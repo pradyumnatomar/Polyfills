@@ -59,6 +59,15 @@ class StaticPromises {
               StaticPromises.#result = resultedArray;
             }
           });
+          /********.  or  .**********/
+            item.then((value) => {
+            StaticPromises.#result = resultOfArray.splice(index, 0, value);
+            resultedArray = resultOfArray.splice(index, 0, value);
+            console.log(resultOfArray, StaticPromises.#result)
+            if (resultOfArray.length === arrayOfPromises.length) {
+              StaticPromises.#result = resultOfArray;
+            }
+          });
         } catch (err) {
           StaticPromises.#error = err;
           StaticPromises.#errorInitiated = true;
